@@ -1,4 +1,4 @@
-// Implementation of 3:8 Decoder using Data Flow Modeling
+// Implementation of 3:8 Decoder with Data Flow Modeling
 
 `timescale 1ns / 1ps
 
