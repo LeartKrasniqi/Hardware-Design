@@ -43,7 +43,7 @@ module shift_register_test;
             #2;
             
             
-            // Test the ambiguous states
+            // Test the double states
             CLK = 0; Load = 0; Shift_Enable = 0; random = 0;
             for(k = 0; k < 16; k = k + 1)
             begin
