@@ -1,4 +1,4 @@
-// Implementation of ALU used in 32-bit MIPS.  Adopted from
+// Implementation of ALU used in 32-bit MIPS.  Influenced by
 // Computer Organization and Design, Fifth Edition by Patterson
 // and Hennessy.
 
