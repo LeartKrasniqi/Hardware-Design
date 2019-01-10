@@ -21,6 +21,7 @@ reg [31:0] mem_address;         // Data Memory
 wire [31:0] data_out;           // Data Memory
 reg branch;                     // PC_mux
 wire [31:0] new_pc;             // PC_mux
+wire [31:0] jump_addr = 0;  
 
 
 
@@ -88,6 +89,10 @@ begin
         branch = ALU_out;
         pc_addr = new_pc;
     end
+    
+    // Jump
+    if (opcode == 6'b000010)
+        pc_addr = jump_addr + instruction[25:0];
     
     // Reset
     if (reset)
