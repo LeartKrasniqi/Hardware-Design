@@ -13,7 +13,7 @@ wire [31:0] const_addr;         // Tokenizer, PC_mux
 reg [31:0] reg_data;            // Registers
 wire [31:0] out_rs, out_rt;     // Registers
 reg [4:0] Rd;                   // Registers
-wire [31:0] register_out;       // Registers 
+wire [31:0] register_out;       // Registers     
 wire read_write;                // Registers, ALU, Data Memory
 reg [31:0] arg0, arg1;          // ALU
 wire [31:0] ALU_out;            // ALU    
@@ -21,8 +21,7 @@ reg [31:0] mem_address;         // Data Memory
 wire [31:0] data_out;           // Data Memory
 reg branch;                     // PC_mux
 wire [31:0] new_pc;             // PC_mux
-wire [31:0] jump_addr = 0;  
-
+wire [31:0] jump_addr = 0;      
 
 
 // Initializing and updating the program counter 
@@ -41,7 +40,7 @@ Registers r(CLK, rs, rt, Rd, reg_data, read_write, user_addr, out_rs, out_rt, re
 ALU alu(CLK, opcode, funct, arg0, arg1, ALU_out, read_write);
 
 // Reading from and/or writing to data memory
-Data_Memory d(CLK, out_rt, mem_address, read_write, data_out);
+Data_Memory d(CLK, opcode, out_rt, mem_address, data_out);
 
 // Selection of new program counter address
 PC_mux pc_select(pc, branch, const_addr, new_pc);
@@ -67,6 +66,7 @@ begin
         arg1 = const_addr;
         Rd = rt;
         mem_address = ALU_out;
+        reg_data = data_out;
         branch = 0;
         pc_addr = new_pc;
     end
