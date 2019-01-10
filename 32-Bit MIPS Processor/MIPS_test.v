@@ -14,6 +14,7 @@ wire [31:0] const_addr;         // Tokenizer, PC_mux
 reg [31:0] reg_data;            // Registers
 wire [31:0] out_rs, out_rt;     // Registers
 reg [4:0] Rd;                   // Registers
+wire [31:0] register_out	// Registers 	
 wire read_write;                // Registers, ALU, Data Memory
 reg [31:0] arg0, arg1;          // ALU
 wire [31:0] ALU_out;            // ALU    
@@ -37,7 +38,7 @@ Instruction_Memory instr_mem(CLK, pc, instruction);
 Tokenizer token(instruction, opcode, rs, rt, rd, funct, const_addr);
 
 // Reading from and/or writing to registers
-Registers r(CLK, rs, rt, Rd, reg_data, read_write, out_rs, out_rt);
+Registers r(CLK, rs, rt, Rd, reg_data, read_write, 0, out_rs, out_rt, register_out);
 
 // Performing arithmetic operations
 ALU alu(CLK, opcode, funct, arg0, arg1, ALU_out, read_write);
