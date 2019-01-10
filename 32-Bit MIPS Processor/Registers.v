@@ -37,7 +37,7 @@ reg [31:0] reg_array [31:0];
 // Initialize the registers to user provided values
 initial
 begin
-    $readmemb("C:/Users/Milot/Desktop/Leart/Cooper Union/final_project/registers2.txt", reg_array);
+    $readmemb("registers.txt", reg_array);
 end
 
 // Write contents into register 
