@@ -10,3 +10,6 @@ Decoders and ROM: The goal of this experiment was to refine our skills in data f
 
 
 Registers and Counters: The goal of this experiment was to become familiar with the modeling of sequential circuits in Verilog and Vivado.  We employ behavioral modeling to design a 4-bit register, a 4-bit left shift register, two 8-bit counters, and a 3-bit counter that counts in a special sequence.  By designing these circuits, we learned how to implement various sequential elements as well as how to properly test the designs of sequential circuits.  We found that the testing of sequential circuits takes additional care due to the fact that initial states must be accounted for and that timing must be taken into consideration when designing test benches.
+
+
+32-Bit MIPS: In this project, we design six of the main functional blocks that make up the 32-bit processor, which can ultimately perform nine of the core MIPS instructions.  In order to test our design, we translate two C programs into machine language code and provide them as instructions for our processor.  It was found that the design was correctly able to perform the operations set forth in the instructions.  Additionally, it was found that the implementation of our design used up fewer than \%25 of the FPGA's resources, making it very efficient.
